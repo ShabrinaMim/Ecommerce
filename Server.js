@@ -14,7 +14,7 @@ const stripe = require("stripe")(STRIPE_SECRET_KEY);
 const app = express();
 
 //Serve static files from the react app
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 //Middleware
 app.use(cors()); //we are using cors for security reason
@@ -59,8 +59,8 @@ app.post("/payments/create", cors(), async function (req, res) {
   }
 });
 
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname + "build/index.html"));
 });
 
 app.listen(PORT, function () {
