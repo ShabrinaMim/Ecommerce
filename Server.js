@@ -1,7 +1,6 @@
 //const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const { response } = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 4040;
 const STRIPE_SECRET_KEY =
