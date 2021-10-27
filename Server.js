@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const PORT = process.env.PORT || 4040;
+
 const STRIPE_SECRET_KEY =
   "sk_test_51Jh096JEG44a6VQqc6pJQ9PZZLqYjsmNnnEI21M08LfRg5wsKb1Kn5VIralSytZFnQN7p1VKJWvnNpWizB8oYNfy00qyTv89GE";
 const stripe = require("stripe")(STRIPE_SECRET_KEY);
@@ -25,8 +26,6 @@ app.get("/", function (req, res) {
   res.status(200).send("This is server");
 });
 */
-
-//Listen command
 
 //exports.api = functions.https.onRequest(app); // it is needed for backend express running in cloud function
 app.post("/payments/create", cors(), async function (req, res) {
@@ -62,6 +61,7 @@ app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 
+//Listen command
 app.listen(PORT, function () {
   console.log(`Example app listening at http://localhost:${PORT}`);
   console.log(path.join(__dirname));
